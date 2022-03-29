@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<listaPeliculas>
+    <listaPelicula>
+        <precioEntrada>0.0</precioEntrada>
+        <titulo>Listas en Java</titulo>
+    </listaPelicula>
+    <listaPelicula>
+        <precioEntrada>0.0</precioEntrada>
+    </listaPelicula>
+    <listaPelicula>
+        <precioEntrada>0.0</precioEntrada>
+        <titulo>XML en Java 2</titulo>
+    </listaPelicula>
+</listaPeliculas>
