@@ -77,8 +77,8 @@ public class Pelicula {
         String r = "";
         r += "Titulo: " + titulo + "\n";
         r += "director: " + director  + "\n";
-        return r;
-        
-      
+        return r; 
     }
+    
+
 }

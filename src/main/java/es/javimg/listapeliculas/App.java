@@ -20,9 +20,9 @@ public class App extends Application {
         stage.show();
         
         Pelicula pelicula1 = new Pelicula("Ficheros en Java");
-        System.out.println(pelicula1.getTitulo());
+        //System.out.println(pelicula1.getTitulo());
         pelicula1.setTitulo("Listas en Java");
-        System.out.println(pelicula1.getTitulo());
+        //System.out.println(pelicula1.getTitulo());
         
         Pelicula pelicula2 = new Pelicula();
         Pelicula pelicula3 = new Pelicula("XML en java");
@@ -31,10 +31,10 @@ public class App extends Application {
 //        int[] listaNum = new int[10];
 //        Libro[] listaLibros = new Libro[10];
     
-        ListaPeliculas listapeliculas = new ListaPeliculas();
-        listapeliculas.getListaPelicula().add(pelicula1);
-        listapeliculas.getListaPelicula().add(pelicula2);
-        listapeliculas.getListaPelicula().add(pelicula3);
+        Peliculas peliculas = new Peliculas();
+        peliculas.getListaPelicula().add(pelicula1);
+        peliculas.getListaPelicula().add(pelicula2);
+        peliculas.getListaPelicula().add(pelicula3);
         
         
         HBox hbox = new HBox(32); // spacing = 8
@@ -42,16 +42,26 @@ public class App extends Application {
         
         Button buttonSelectFile = new Button("Guardar XML");
         buttonSelectFile.setOnAction((t) -> {
-            UtilXML.guardarDatosXML(stage, listapeliculas);
+            UtilXML.guardarDatosXML(stage, peliculas);
         });
+        
+        
         
         Button buttonImportFile = new Button("Importar xml");
         buttonImportFile.setOnAction((t) -> {
-            UtilXML.convertirDatosXML(stage, listapeliculas);
+            Peliculas peliculasImport = UtilXML.convertirDatosXML(stage);
+            peliculas.añadirPeliculas(peliculas);
+            System.out.println(peliculas.getListaPelicula().get(3));
+            
         });
         
         hbox.getChildren().addAll(buttonImportFile,buttonSelectFile);
         root.getChildren().add(hbox);
+        
+        peliculas.añadirPeliculas(peliculas);
+        
+        
+       
         //mostrar titulo de segundo libro
 //       
 //        System.out.println(listaLibros.get(2).getTitulo());

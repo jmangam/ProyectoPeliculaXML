@@ -11,14 +11,14 @@ import javax.xml.bind.Unmarshaller;
 
 public class UtilXML {
     
-        public static void guardarDatosXML(Stage stage, ListaPeliculas listapeliculas) {
+        public static void guardarDatosXML(Stage stage, Peliculas listapeliculas) {
             JAXBContext contexto;
             try {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Guardar XML en");
                 File fileListaPeliculas = fileChooser.showSaveDialog(stage);
 
-                contexto = JAXBContext.newInstance(ListaPeliculas.class);
+                contexto = JAXBContext.newInstance(Peliculas.class);
                 Marshaller marshaller = contexto.createMarshaller();
                 marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
                 marshaller.marshal(listapeliculas, System.out);
@@ -29,7 +29,7 @@ public class UtilXML {
             }
 
         }
-        public static void convertirDatosXML (Stage stage, ListaPeliculas listapeliculas){
+        public static Peliculas convertirDatosXML (Stage stage){
             
             try {
                 
@@ -39,9 +39,11 @@ public class UtilXML {
                 
                 
                 
-                JAXBContext context = JAXBContext.newInstance( Pelicula.class );
+                JAXBContext context = JAXBContext.newInstance(Peliculas.class);
                 Unmarshaller unmarshaller = context.createUnmarshaller();
-                listapeliculas = (ListaPeliculas)unmarshaller.unmarshal(fileListaPeliculas);
+                Peliculas peliculasImport = new Peliculas(); 
+                peliculasImport  = (Peliculas)unmarshaller.unmarshal(fileListaPeliculas);
+                return peliculasImport;
 
                 //System.out.println(pelicula.getTitulo());
                 //System.out.println(pelicula.getDuracion());
@@ -49,6 +51,9 @@ public class UtilXML {
             } catch (JAXBException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                return null;
+                
             }
+            
         }
 }
