@@ -2,11 +2,11 @@ package es.javimg.listapeliculas;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
@@ -14,7 +14,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        StackPane root = new StackPane();
+        VBox root = new VBox();
+        root.setAlignment(Pos.CENTER);
+        root.setSpacing(30);
         var scene = new Scene(root, 640, 480);
         stage.setScene(scene);
         stage.show();
@@ -37,7 +39,6 @@ public class App extends Application {
         peliculas.getListaPelicula().add(pelicula3);
         
         
-        HBox hbox = new HBox(32); // spacing = 8
         
         
         Button buttonSelectFile = new Button("Guardar XML");
@@ -50,18 +51,30 @@ public class App extends Application {
         Button buttonImportFile = new Button("Importar xml");
         buttonImportFile.setOnAction((t) -> {
             Peliculas peliculasImport = UtilXML.convertirDatosXML(stage);
-            peliculas.añadirPeliculas(peliculas);
-            System.out.println(peliculas.getListaPelicula().get(3));
+            peliculas.añadirPeliculas(peliculasImport);
+            System.out.println(peliculas.getListaPelicula().size());
+            
             
         });
         
-        hbox.getChildren().addAll(buttonImportFile,buttonSelectFile);
-        root.getChildren().add(hbox);
+        root.getChildren().addAll(buttonImportFile,buttonSelectFile);
         
         peliculas.añadirPeliculas(peliculas);
         
+        Label label = new Label("a label");
+        root.getChildren().addAll(label);
         
-       
+        Button buttonAvanzar = new Button("Avanzar");
+//        buttonImportFile.setOnAction((t) -> {
+//            
+//        }
+
+        Button buttonRetroceder = new Button("Retroceder");
+//        buttonImportFile.setOnAction((t) -> {
+//            
+//        }
+
+        root.getChildren().addAll(buttonAvanzar,buttonRetroceder);
         //mostrar titulo de segundo libro
 //       
 //        System.out.println(listaLibros.get(2).getTitulo());
@@ -78,9 +91,6 @@ public class App extends Application {
 //            System.out.println(listaLibros.get(i));
 //        }
 //      
-
-        
-    
 
     }
 

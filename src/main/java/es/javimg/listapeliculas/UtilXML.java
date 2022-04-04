@@ -38,10 +38,9 @@ public class UtilXML {
                 File fileListaPeliculas = fileChooser.showOpenDialog(stage);
                 
                 
-                
                 JAXBContext context = JAXBContext.newInstance(Peliculas.class);
                 Unmarshaller unmarshaller = context.createUnmarshaller();
-                Peliculas peliculasImport = new Peliculas(); 
+                Peliculas peliculasImport = new Peliculas();
                 peliculasImport  = (Peliculas)unmarshaller.unmarshal(fileListaPeliculas);
                 return peliculasImport;
 

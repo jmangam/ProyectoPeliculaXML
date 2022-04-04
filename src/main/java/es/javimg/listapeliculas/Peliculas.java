@@ -19,11 +19,6 @@ public class Peliculas {
     }
     
     public void añadirPeliculas(Peliculas peliculasImport) {
-        Peliculas peliculas = new Peliculas();
-        for(int i=0; i!=peliculasImport.getListaPelicula().size(); i++) {
-            peliculas.getListaPelicula().add(peliculasImport.getListaPelicula().get(i));
-        }
-        
-    System.out.println(peliculas.getListaPelicula().get(4));
+        this.getListaPelicula().addAll(peliculasImport.getListaPelicula());
     }
 }
