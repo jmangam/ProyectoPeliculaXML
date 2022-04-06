@@ -11,7 +11,7 @@ import javax.xml.bind.Unmarshaller;
 
 public class UtilXML {
     
-        public static void guardarDatosXML(Stage stage, Peliculas listapeliculas) {
+        public static void guardarDatosXML(Stage stage, Peliculas listapeliculas) { // Este metodo se encarga de crear el filechooser de guardar el xml
             JAXBContext contexto;
             try {
                 FileChooser fileChooser = new FileChooser();
@@ -29,7 +29,7 @@ public class UtilXML {
             }
 
         }
-        public static Peliculas convertirDatosXML (Stage stage){
+        public static Peliculas convertirDatosXML (Stage stage){ //este metodo se encarga de crear un filechooser que abra un fichero xml
             
             try {
                 

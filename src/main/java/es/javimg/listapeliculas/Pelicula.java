@@ -68,7 +68,7 @@ public class Pelicula {
         return fechaEstreno;
     }
     
-    public void setfechaEstreno(String fechaEstreno) {
+    public void setFechaEstreno(String fechaEstreno) {
         this.fechaEstreno = fechaEstreno;
     }
     
